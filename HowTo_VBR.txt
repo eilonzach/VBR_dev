@@ -1,0 +1,27 @@
+HOW TO setup prior models for some seismic measurement, using the VBR
+
+
+
+=================================
+1. Setup the array of prior models (make PMbox)
+
+1a. Run the cooling model: 
+In 2_PLATES/1_1D_cooling, setup your resolution, potential temp, all other initial parameters in "DRIVE_cooling.m". This outputs the "Movie" data structure. Give yours a unique name. 
+
+1b. Add the steps: 
+cd ../Make_StepPMs
+
+To vary amplitude and depth of the step (Expt 1 in B+H, 2014), 
+open DRIVE_addTstep_dTdepth.m. 
+
+To vary amplitude and sharpness (gradient) of the step, at one depth (Expt 2),
+open DRIVE_addTstep_sharpness.m. 
+
+
+	
+=================================
+2.  run the VBR on the prior models (add VBR calculations to PMbox)
+Send it to orestes 2_/5_/3_ and fix DRIVE_WaveFD
+
+=================================
+3.  run the VBR on the prior models (make PMseismo)
