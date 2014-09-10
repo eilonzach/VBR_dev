@@ -1,12 +1,20 @@
 HOW TO setup prior models for some seismic measurement, using the VBR
+In general, the process is as follows: 
+(1) run a forward model to predict a spatial distribution of thermodynamic state variables (pressure, temperature, grain size, melt fraction, etc.. ), i.e. 
+(a) a 1D cooling model, 
+(b) a thermomechanical calculation (viscoelastic model with heat production and advection)
+(c) prior models that are not calculated from first principles.
 
+(2) calculate all the mechanical properties across the viscoelastic spectrum, using the VBR calculator (not on github yet). 
+
+(3) Compare the result to an observation, such as a Vs profile from inversion of surface wave measurements, or do a forward model of a process (ie GIA or anelastic wave propagation) that leads to a measurement (such as t* for attenuation or GPS velocities for GIA). 
 
 
 =================================
-1. Setup the array of prior models (make PMbox)
+1. Setup the array of prior models (make a Box)
 
 1a. Run the cooling model: 
-In 2_PLATES/1_1D_cooling, setup your resolution, potential temp, all other initial parameters in "DRIVE_cooling.m". This outputs the "Movie" data structure. Give yours a unique name. 
+In 2_PLATES/1_1D_cooling, setup your resolution, potential temp, all other initial parameters in "DRIVE_cooling.m". This outputs the "Box" data structure that contains a "Movie" with the results of each forward model. Give yours a unique name. 
 
 1b. Add the steps: 
 cd ../Make_StepPMs
